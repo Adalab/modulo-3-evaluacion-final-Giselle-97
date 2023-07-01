@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 function CharacterCard({ eachCard }) {
   return (
-    <>
+    <Link to={'character/' + eachCard.id}>
       <img
         className='cardList__card--image'
         src={eachCard.image}
@@ -8,7 +9,7 @@ function CharacterCard({ eachCard }) {
       />
       <h2 className='cardList__card--name'>{eachCard.name}</h2>
       <p className='cardList__card--species'>{eachCard.species}</p>
-    </>
+    </Link>
   );
 }
 export default CharacterCard;

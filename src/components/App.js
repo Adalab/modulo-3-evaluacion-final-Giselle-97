@@ -1,38 +1,58 @@
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { useLocation, matchPath } from 'react-router';
 import getDataApi from '../services/api';
 import CharacterList from './CharacterList';
+import CharacterDetail from './CharacterDetail';
 import imgHeader from '../images/rick-y-morty.jpg';
 import imgLogo from '../images/logo.png';
+import localS from '../services/localStorage';
+import Filters from './Filters';
 import '../styles/App.scss';
 
 function App() {
-  const [charactersList, setCharactersList] = useState([]);
-  const [searchName, setSearchName] = useState('');
-  const [searchSpecie, setSearchSpecie] = useState('');
-  //1-Fetch
+  const [charactersList, setCharactersList] = useState([
+    localS.get('characters', []),
+  ]);
+
+  //1-Fetch y localS
   useEffect(() => {
-    getDataApi().then((cleanData) => {
-      setCharactersList(cleanData);
-    });
+    if (localStorage.getItem('characters') === null) {
+      getDataApi().then((cleanData) => {
+        setCharactersList(cleanData);
+        localS.set('characters ', cleanData);
+      });
+    }
   }, []);
 
   //function
-  const handleInputSearchName = (ev) => {
-    setSearchName(ev.target.value);
+  const [searchName, setSearchName] = useState('');
+  const [searchSpecie, setSearchSpecie] = useState('');
+
+  const handleFilter = (varName, varValue) => {
+    if (varName === 'name') {
+      setSearchName(varValue);
+    } else if (varName === 'species') {
+      setSearchSpecie(varValue);
+    }
   };
 
-  const handleInputSearchSpecie = (ev) => {
-    setSearchSpecie(ev.target.value);
-  };
-
-  const filterCharacters = charactersList.filter(
+  /*const filterCharacters = charactersList.filter(
     (eachCard) =>
       eachCard.name.toLowerCase().includes(searchName.toLowerCase()).filter
   );
-
+*/
   /* const filterSpecies = charactersList.filter((eachCard) =>
     eachCard.species.toLowerCase().includes(searchSpecie.toLowerCase())
   );*/
+
+  //obtener información del personaje
+  const { pathname } = useLocation();
+
+  const routeData = matchPath('/character/:characterId', pathname);
+
+  console.log(routeData);
+  //Falta la otra parte del router y el filtro
 
   return (
     <div>
@@ -41,33 +61,22 @@ function App() {
         <p className='header__title'>Rick and Morty</p>
       </header>
       <main>
-        <form className='form'>
-          <div className='container'>
-            <label className='container__search' htmlFor=''>
-              Buscar personaje
-            </label>
-            <input
-              className='container__search--input'
-              type='text'
-              placeholder='Ej: Rick'
-              value={searchName}
-              onInput={handleInputSearchName}
-            />
-          </div>
-          <div className='container'>
-            <label className='container__search2' htmlFor=''>
-              Buscar especie
-            </label>
-            <input
-              className='container__search2--input'
-              type='text'
-              placeholder='Ej: Human'
-              value={searchSpecie}
-              onInput={handleInputSearchSpecie}
-            />
-          </div>
-        </form>
-        <CharacterList charactersList={filterCharacters} />
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <>
+                <Filters
+                  searchName={searchName}
+                  searchSpecie={searchSpecie}
+                  handleFilter={handleFilter}
+                />
+                <CharacterList charactersList={charactersList} />
+              </>
+            }
+          />
+          <Route path='/character/:characterId' element={<CharacterDetail />} />
+        </Routes>
       </main>
       <footer className='footer'>
         <img className='footer__img' src={imgLogo} alt='' />
