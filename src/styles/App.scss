@@ -11,8 +11,8 @@ body {
   align-items: center;
 }
 .header__img {
-  width: 35%;
-  height: 35%;
+  width: 40%;
+  height: 40%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -21,6 +21,58 @@ body {
   color: azure;
   font-family: $eater;
   font-size: 40px;
+}
+/*
+.hero__container {
+  display: flex;
+  justify-content: center;
+
+  &--search {
+    background-color: azure;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    height: 4rem;
+    width: 45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    transform: translateY(-30px);
+  }
+}*/
+
+.cardList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+.cardList__card {
+  background: linear-gradient(rgb(0, 4, 255), rgb(84, 232, 234));
+  border: solid 1px blue;
+  width: 150px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+.cardList__card--image {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+.cardList__card--name {
+  color: black;
+  font-family: $courgette;
+  font-size: 12px;
+  padding: 3px;
+}
+.cardList__card--species {
+  color: black;
+  font-family: $eater;
+
+  font-size: 10px;
 }
 /*
 .header {
