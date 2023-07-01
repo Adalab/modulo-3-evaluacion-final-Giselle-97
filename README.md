@@ -14,4 +14,4 @@ Yanelis Serrano @ytaylordev
 
 Dayana Romero @dayanare
 
-© Adalab 2023 | Trótula Promotion
+© Adalab 2023 | Trótula Promotion💻
