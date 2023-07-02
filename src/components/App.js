@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useLocation, matchPath } from 'react-router';
 import getDataApi from '../services/api';
 import CharacterList from './CharacterList';
@@ -11,24 +11,25 @@ import Filters from './Filters';
 import '../styles/App.scss';
 
 function App() {
-  const [charactersList, setCharactersList] = useState([
-    localS.get('characters', []),
-  ]);
+  const [charactersList, setCharactersList] = useState(
+    localS.get('characters', [])
+  );
 
   //1-Fetch y localS
   useEffect(() => {
-    if (localStorage.getItem('characters') === null) {
+    if (localS.get('characters', null) === null) {
       getDataApi().then((cleanData) => {
         setCharactersList(cleanData);
-        localS.set('characters ', cleanData);
+        localS.set('characters', cleanData);
       });
     }
   }, []);
 
-  //function
+  //variables estado para filtro
   const [searchName, setSearchName] = useState('');
   const [searchSpecie, setSearchSpecie] = useState('');
 
+  //function handlefilter
   const handleFilter = (varName, varValue) => {
     if (varName === 'name') {
       setSearchName(varValue);
@@ -37,11 +38,10 @@ function App() {
     }
   };
 
-  /*const filterCharacters = charactersList.filter(
-    (eachCard) =>
-      eachCard.name.toLowerCase().includes(searchName.toLowerCase()).filter
+  const filteredCharacters = charactersList.filter((eachCard) =>
+    eachCard.name.toLowerCase().includes(searchName.toLowerCase())
   );
-*/
+
   /* const filterSpecies = charactersList.filter((eachCard) =>
     eachCard.species.toLowerCase().includes(searchSpecie.toLowerCase())
   );*/
@@ -50,10 +50,19 @@ function App() {
   const { pathname } = useLocation();
 
   const routeData = matchPath('/character/:characterId', pathname);
-
   console.log(routeData);
-  //Falta la otra parte del router y el filtro
 
+  const characterId = routeData !== null ? routeData.params.characterId : '';
+
+  console.log(characterId);
+
+  const characterData = charactersList.find(
+    (character) => character.id === parseInt(characterId)
+  );
+
+  console.log(characterData);
+
+  //html
   return (
     <div>
       <header className='header'>
@@ -71,11 +80,14 @@ function App() {
                   searchSpecie={searchSpecie}
                   handleFilter={handleFilter}
                 />
-                <CharacterList charactersList={charactersList} />
+                <CharacterList charactersList={filteredCharacters} />
               </>
             }
           />
-          <Route path='/character/:characterId' element={<CharacterDetail />} />
+          <Route
+            path='/character/:characterId'
+            element={<CharacterDetail characterData={characterData} />}
+          />
         </Routes>
       </main>
       <footer className='footer'>

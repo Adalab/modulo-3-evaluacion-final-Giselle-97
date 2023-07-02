@@ -4,7 +4,7 @@ function FilterCharacter({ searchName, handleFilter }) {
     handleFilter('name', ev.target.value);
   };
   return (
-    <div className='container__search'>
+    <div className='container'>
       <label className='container__search' htmlFor='search__character'>
         Buscar personaje
       </label>

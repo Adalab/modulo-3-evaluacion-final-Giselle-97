@@ -4,7 +4,7 @@ function FilterSpecie({ searchSpecie, handleFilter }) {
     handleFilter('species', ev.target.value);
   };
   return (
-    <div className='container__search'>
+    <div className='container'>
       <label className='container__search2' htmlFor='search_specie'>
         Buscar especie
       </label>
