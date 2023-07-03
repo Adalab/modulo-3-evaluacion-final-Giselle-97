@@ -94,7 +94,12 @@ function App() {
             path='/character/:characterId'
             element={<CharacterDetail characterData={characterData} />}
           />
-          <Route path='*' element={<p> pagina no encontrada</p>} />
+          <Route
+            path='*'
+            element={
+              <p className='errorPage'>"Lo sentimos, esta página no existe"</p>
+            }
+          />
         </Routes>
       </main>
       <footer className='footer'>

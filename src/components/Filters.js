@@ -11,7 +11,8 @@ function Filters({
     if (searchName && filteredCharacters.length === 0) {
       return (
         <p className='messageError'>
-          No hay ningún personaje que coincida con la palabra "{searchName}"
+          *Lo sentimos, no hay ningún personaje que coincida con la palabra "
+          {searchName}"
         </p>
       );
     }
