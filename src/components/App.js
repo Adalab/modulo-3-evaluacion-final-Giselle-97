@@ -67,7 +67,12 @@ function App() {
     <div>
       <header className='header'>
         <img className='header__img' src={imgHeader} alt='' />
-        <p className='header__title'>Rick and Morty</p>
+        <a
+          className='header__link'
+          href='https://en.wikipedia.org/wiki/Rick_and_Morty'
+        >
+          <p className='header__link--title'>Rick and Morty</p>
+        </a>
       </header>
       <main>
         <Routes>
@@ -89,11 +94,18 @@ function App() {
             path='/character/:characterId'
             element={<CharacterDetail characterData={characterData} />}
           />
+          <Route path='*' element={<p> pagina no encontrada</p>} />
         </Routes>
       </main>
       <footer className='footer'>
-        <img className='footer__img' src={imgLogo} alt='' />
-        <p className='footer__text'>Adalab &copy;2023</p>
+        <a className='footer__link' href='https://github.com/Giselle-97'>
+          {' '}
+          <img className='footer__link--img' src={imgLogo} alt='' />
+        </a>
+
+        <a href='https://adalab.es/' className='footer__text'>
+          Adalab &copy;2023
+        </a>
       </footer>
     </div>
   );

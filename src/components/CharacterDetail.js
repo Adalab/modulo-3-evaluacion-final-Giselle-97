@@ -13,23 +13,23 @@ function CharacterDetail({ characterData }) {
           <section className='cardInfo'>
             <h2 className='cardInfo__name'>{characterData.name}</h2>
             <p className='cardInfo__specie'>
-              Raza: {''}
+              *Raza: {''}
               {characterData.species}
             </p>
             <p className='cardInfo__origin'>
-              Planeta de origen: {''} {characterData.origin}
+              *Planeta de origen: {''} {characterData.origin}
             </p>
             <p className='cardInfo__episodes'>
-              Número de episodios en los que aparace: {''}
+              *Número de episodios en los que aparace: {''}
               {characterData.episode.length}
             </p>
             <p className='cardInfo__status'>
-              Estado actual: {''} {characterData.status}
+              *Estado actual: {''} {characterData.status}
             </p>
           </section>
         </div>
         <div className='divReturn'>
-          <Link to='/' className='return'>
+          <Link to='/' className='divReturn__text'>
             Volver
           </Link>
         </div>

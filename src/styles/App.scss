@@ -19,11 +19,20 @@ body {
   background-size: cover;
   background-position: center;
 }
-
-.header__title {
+.header__link {
+  text-decoration: none;
+}
+.header__link--title {
   color: azure;
   font-family: $eater;
-  font-size: 40px;
+  font-size: 45px;
+}
+.header__link--title:hover {
+  background: -webkit-linear-gradient(yellow, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+  transition: all 0.4s ease-in-out;
 }
 
 .form {
@@ -60,6 +69,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 20px;
   padding-left: 30px;
+  //text-decoration: none;
 }
 
 .cardList__card {
@@ -73,6 +83,15 @@ body {
   align-items: center;
   text-align: center;
   border-radius: 10px;
+  overflow: hidden;
+}
+.cardList .card {
+  text-decoration: none;
+}
+.cardList__card:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: all 0.4s ease-in-out;
 }
 
 .cardList__card--image {
@@ -104,6 +123,10 @@ body {
   padding: 20px 20px 10px 20px;
   margin: auto;
 }
+.containerCardInfo:hover {
+  filter: saturate(160%);
+  transition: all 0.5s ease-in-out;
+}
 .containerCardInfo__image {
   border-radius: 50%;
   width: 150px;
@@ -114,7 +137,7 @@ body {
   flex-direction: column;
   padding: 20px;
   gap: 20px;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 .cardInfo__name {
@@ -142,13 +165,24 @@ body {
   font-size: 18px;
   font-family: $irish-grover;
 }
-
-.return {
+.divReturn {
+  display: flex;
+  justify-content: space-evenly;
+}
+.divReturn__text {
   color: #fff;
   font-size: 18px;
   text-decoration: none;
   font-family: $ribeye;
+  padding-top: 10px;
 }
+.divReturn__text:hover {
+  color: aqua;
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+  transition: all 0.5s ease-in-out;
+}
+
 //menssageError
 .errorCharacter {
   color: #fff;
@@ -164,12 +198,27 @@ body {
   gap: 80px;
   padding: 30px 0 20px 0;
 }
-.footer__img {
-  width: 10%;
-  height: 10%;
+.footer__link {
+  //border-radius: 50%;
+}
+.footer__link--img {
+  width: 15%;
+  height: 15%;
+  overflow: hidden;
+}
+.footer__link--img:hover {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+  transition: all 0.4s ease-in-out;
 }
 .footer__text {
   color: white;
   font-size: 25px;
   font-family: $henny-penny;
+  text-decoration: none;
+}
+.footer__text:hover {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: rgb(6, 249, 229);
 }
