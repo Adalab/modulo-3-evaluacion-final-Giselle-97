@@ -5,8 +5,273 @@ body {
   background-color: black;
 }
 
+main {
+  min-height: 80vh;
+}
+/*
 .header {
-  //background: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header__img {
+  width: 40%;
+  height: 40%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @media screen and (min-width: 768px) {
+    width: 40%;
+    height: 40%;
+  }
+}
+
+.header__link {
+  text-decoration: none;
+}
+
+.header__link--title {
+  color: azure;
+  font-family: $eater;
+  font-size: 17px;
+  @media screen and (min-width: 768px) {
+    font-size: 45px;
+  }
+}
+
+.header__link--title:hover {
+  background: -webkit-linear-gradient(yellow, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+  transition: all 0.4s ease-in-out;
+}
+
+.form {
+  padding: 20px 0 20px 0;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.container {
+  padding-bottom: 5px;
+}
+
+.container__search {
+  color: #fff;
+  font-family: $shojumaru;
+  font-size: 8px;
+  padding-right: 10px;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.container__search--input {
+  border: solid 2px orangered;
+  height: 10px;
+}
+
+.container__search2 {
+  color: #fff;
+  font-size: 8px;
+  font-family: $shojumaru;
+  padding-right: 26px;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    padding-right: 10px;
+  }
+}
+.container__search2--input {
+  border: solid 2px orangered;
+  height: 10px;
+}
+
+::placeholder {
+  font-size: 8px;
+  font-family: $roboto;
+  @media screen and (min-width: 768px) {
+    font-size: 10px;
+  }
+}
+
+.cardList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 0 10px 0 10px;
+  @media screen and (min-width: 768px) {
+    gap: 20px;
+    padding-left: 30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+.cardList__card {
+  background: linear-gradient(rgb(0, 4, 255), rgb(84, 232, 234));
+  border: solid 1px blue;
+  width: 85px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 160px;
+  }
+}
+
+.cardList__card:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: all 0.4s ease-in-out;
+}
+
+.card {
+  text-decoration: none;
+}
+
+.cardList__card--image {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  @media screen and (min-width: 768px) {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.cardList__card--name {
+  color: black;
+  font-family: $courgette;
+  font-size: 9px;
+  padding: 3px;
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.cardList__card--species {
+  color: black;
+  font-family: $eater;
+  font-size: 6px;
+  @media screen and (min-width: 768px) {
+    font-size: 10px;
+  }
+}
+
+//cardInfo
+.divCard {
+  margin-top: 20px;
+}
+.containerCardInfo {
+  display: flex;
+  background: linear-gradient(rgb(115, 2, 137), rgb(218, 123, 250));
+  border: solid 2px rgb(253, 4, 191);
+  border-radius: 10px;
+  width: 180px;
+  padding: 10px 0 0 10px;
+  margin: auto;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+  }
+}
+
+.containerCardInfo:hover {
+  filter: saturate(150%);
+  transition: all 0.5s ease-in-out;
+}
+
+.containerCardInfo__image {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+//
+
+.cardInfo {
+  color: #fff;
+  flex-direction: column;
+  padding: 5px;
+  gap: 20px;
+  line-height: 1.3;
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+  }
+}
+
+.cardInfo__name {
+  font-size: 18px;
+  font-family: $henny-penny;
+  padding-bottom: 5px;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+.cardInfo__name:hover {
+  color: rgb(59, 217, 122);
+}
+
+.cardInfo__specie {
+  font-size: 13px;
+  font-family: $irish-grover;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+.cardInfo__specie:hover {
+  color: rgb(221, 206, 6);
+}
+
+.cardInfo__origin {
+  font-size: 13px;
+  font-family: $irish-grover;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+.cardInfo__origin:hover {
+  color: rgb(221, 206, 6);
+}
+
+.cardInfo__episodes {
+  font-size: 13px;
+  font-family: $irish-grover;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+.cardInfo__episodes:hover {
+  color: rgb(221, 206, 6);
+}
+
+.cardInfo__status {
+  font-size: 13px;
+  font-family: $irish-grover;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+.cardInfo__status:hover {
+  color: rgb(221, 206, 6);
+}
+*/
+
+.header {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -19,14 +284,17 @@ body {
   background-size: cover;
   background-position: center;
 }
+
 .header__link {
   text-decoration: none;
 }
+
 .header__link--title {
   color: azure;
   font-family: $eater;
   font-size: 45px;
 }
+
 .header__link--title:hover {
   background: -webkit-linear-gradient(yellow, red);
   -webkit-background-clip: text;
@@ -41,8 +309,7 @@ body {
   padding: 20px 0 20px 0;
 }
 
-.container {
-}
+//.container {}
 
 .container__search {
   color: #fff;
@@ -69,7 +336,6 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 20px;
   padding-left: 30px;
-  //text-decoration: none;
 }
 
 .cardList__card {
@@ -85,13 +351,15 @@ body {
   border-radius: 10px;
   overflow: hidden;
 }
-.cardList .card {
-  text-decoration: none;
-}
+
 .cardList__card:hover {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   transition: all 0.4s ease-in-out;
+}
+
+.card {
+  text-decoration: none;
 }
 
 .cardList__card--image {
@@ -114,8 +382,12 @@ body {
 }
 
 //cardInfo
+.divCard {
+  margin-top: 20px;
+}
 .containerCardInfo {
   display: flex;
+  align-items: center;
   background: linear-gradient(rgb(115, 2, 137), rgb(218, 123, 250));
   border: solid 2px rgb(253, 4, 191);
   border-radius: 10px;
@@ -191,6 +463,7 @@ body {
   text-decoration: none;
   font-family: $ribeye;
   padding-top: 10px;
+  margin-left: 20px;
 }
 .divReturn__text:hover {
   color: rgb(255, 238, 0);
@@ -199,6 +472,11 @@ body {
 //menssageError
 .errorCharacter {
   color: #fff;
+  font-size: 18px;
+  font-family: $roboto;
+  width: 320px;
+  margin: auto;
+  padding: 20px;
 }
 .messageError {
   color: #fff;
@@ -210,12 +488,18 @@ body {
 
 .errorPage {
   color: #fff;
+  font-size: 18px;
+  font-family: $roboto;
+  width: 300px;
+  margin: auto;
+  padding: 20px;
 }
 
 .footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 80px;
   gap: 80px;
   padding: 30px 0 20px 0;
 }

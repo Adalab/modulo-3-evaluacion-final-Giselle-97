@@ -3,7 +3,7 @@ function CharacterDetail({ characterData }) {
   if (characterData) {
     //console.log(characterData);
     return (
-      <div>
+      <div className='divCard'>
         <div className='containerCardInfo'>
           <img
             className='containerCardInfo__image'
@@ -38,8 +38,12 @@ function CharacterDetail({ characterData }) {
   } else {
     return (
       <div>
-        <p className='errorCharacter'>Lo sentimos, ese personaje no existe!</p>
-        <Link to='/'>Volver</Link>
+        <p className='errorCharacter'>
+          "Lo sentimos, este personaje no existe"
+        </p>
+        <Link to='/' className='divReturn__text'>
+          Volver
+        </Link>
       </div>
     );
   }

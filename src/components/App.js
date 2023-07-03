@@ -8,6 +8,8 @@ import imgHeader from '../images/rick-y-morty.jpg';
 import imgLogo from '../images/logo.png';
 import localS from '../services/localStorage';
 import Filters from './Filters';
+import { Link } from 'react-router-dom';
+
 import '../styles/App.scss';
 
 function App() {
@@ -97,7 +99,14 @@ function App() {
           <Route
             path='*'
             element={
-              <p className='errorPage'>"Lo sentimos, esta página no existe"</p>
+              <div>
+                <p className='errorPage'>
+                  "Lo sentimos, esta página no existe"
+                </p>
+                <Link to='/' className='divReturn__text'>
+                  Volver
+                </Link>
+              </div>
             }
           />
         </Routes>
