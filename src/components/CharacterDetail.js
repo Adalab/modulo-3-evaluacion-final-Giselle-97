@@ -1,30 +1,44 @@
 import { Link } from 'react-router-dom';
 function CharacterDetail({ characterData }) {
   if (characterData) {
+    //console.log(characterData);
     return (
       <div>
-        <section>
-          <h2>{characterData.name}</h2>
-          <p>Raza:{characterData.species}</p>
-          <p>Planeta de origen: {characterData.origin}</p>
-          <p>
-            Número de episodios en los que aparace:
-            {characterData.episode}
-          </p>
-          <p>Estado actual: x</p>
-        </section>
-        <Link to='/'>Volver</Link>
-        <img
-          className='cardList__card--image'
-          src={characterData.image}
-          alt={`Foto de ${characterData.name}`}
-        />
+        <div className='containerCardInfo'>
+          <img
+            className='containerCardInfo__image'
+            src={characterData.image}
+            alt={`Foto de ${characterData.name}`}
+          />
+          <section className='cardInfo'>
+            <h2 className='cardInfo__name'>{characterData.name}</h2>
+            <p className='cardInfo__specie'>
+              Raza: {''}
+              {characterData.species}
+            </p>
+            <p className='cardInfo__origin'>
+              Planeta de origen: {''} {characterData.origin}
+            </p>
+            <p className='cardInfo__episodes'>
+              Número de episodios en los que aparace: {''}
+              {characterData.episode.length}
+            </p>
+            <p className='cardInfo__status'>
+              Estado actual: {''} {characterData.status}
+            </p>
+          </section>
+        </div>
+        <div className='divReturn'>
+          <Link to='/' className='return'>
+            Volver
+          </Link>
+        </div>
       </div>
     );
   } else {
     return (
       <div>
-        <p className='error'>Lo sentimos, ese personaje no existe!</p>
+        <p className='errorCharacter'>Lo sentimos, ese personaje no existe!</p>
         <Link to='/'>Volver</Link>
       </div>
     );

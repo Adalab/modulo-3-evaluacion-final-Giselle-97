@@ -8,9 +8,9 @@ function Filters({
   filteredCharacters,
 }) {
   const messageError = () => {
-    if (searchName && filteredCharacters === 0) {
+    if (searchName && filteredCharacters.length === 0) {
       return (
-        <p>
+        <p className='messageError'>
           No hay ningún personaje que coincida con la palabra "{searchName}"
         </p>
       );

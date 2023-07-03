@@ -91,9 +91,72 @@ body {
 .cardList__card--species {
   color: black;
   font-family: $eater;
-
   font-size: 10px;
 }
+
+//cardInfo
+.containerCardInfo {
+  display: flex;
+  background: linear-gradient(rgb(115, 2, 137), rgb(218, 123, 250));
+  border: solid 2px rgb(253, 4, 191);
+  border-radius: 10px;
+  width: 50%;
+  padding: 20px 20px 10px 20px;
+  margin: auto;
+}
+.containerCardInfo__image {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.cardInfo {
+  color: #fff;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  line-height: 1.2;
+}
+
+.cardInfo__name {
+  font-size: 24px;
+  font-family: $henny-penny;
+  padding-bottom: 5px;
+}
+
+.cardInfo__specie {
+  font-size: 18px;
+  font-family: $irish-grover;
+}
+
+.cardInfo__origin {
+  font-size: 18px;
+  font-family: $irish-grover;
+}
+
+.cardInfo__episodes {
+  font-size: 18px;
+  font-family: $irish-grover;
+}
+
+.cardInfo__status {
+  font-size: 18px;
+  font-family: $irish-grover;
+}
+
+.return {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: $ribeye;
+}
+//menssageError
+.errorCharacter {
+  color: #fff;
+}
+.messageError {
+  color: #fff;
+}
+
 .footer {
   display: flex;
   justify-content: space-around;

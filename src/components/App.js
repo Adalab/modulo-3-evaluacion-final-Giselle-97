@@ -38,29 +38,29 @@ function App() {
     }
   };
 
-  const filteredCharacters = charactersList.filter((eachCard) =>
-    eachCard.name.toLowerCase().includes(searchName.toLowerCase())
-  );
-
-  /* const filterSpecies = charactersList.filter((eachCard) =>
-    eachCard.species.toLowerCase().includes(searchSpecie.toLowerCase())
-  );*/
+  const filteredCharacters = charactersList
+    .filter((eachCard) =>
+      eachCard.name.toLowerCase().includes(searchName.toLowerCase())
+    )
+    .filter((eachCard) =>
+      eachCard.species.toLowerCase().includes(searchSpecie.toLowerCase())
+    );
 
   //obtener información del personaje
   const { pathname } = useLocation();
 
   const routeData = matchPath('/character/:characterId', pathname);
-  console.log(routeData);
+  //console.log(routeData);
 
   const characterId = routeData !== null ? routeData.params.characterId : '';
 
-  console.log(characterId);
+  //console.log(characterId);
 
   const characterData = charactersList.find(
     (character) => character.id === parseInt(characterId)
   );
 
-  console.log(characterData);
+  // console.log(characterData);
 
   //html
   return (
@@ -79,6 +79,7 @@ function App() {
                   searchName={searchName}
                   searchSpecie={searchSpecie}
                   handleFilter={handleFilter}
+                  filteredCharacters={filteredCharacters}
                 />
                 <CharacterList charactersList={filteredCharacters} />
               </>
