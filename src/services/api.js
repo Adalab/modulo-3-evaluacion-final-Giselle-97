@@ -11,7 +11,7 @@ const getDataApi = () => {
             species: characterApi.species,
             status: characterApi.status,
             origin: characterApi.origin.name,
-            episode: characterApi.episode,
+            episode: characterApi.episode.length,
           };
         })
         .sort((a, b) => a.name.localeCompare(b.name));

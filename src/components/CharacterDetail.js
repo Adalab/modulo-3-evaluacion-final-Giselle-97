@@ -4,6 +4,7 @@ import imgDead from '../images/skull.png';
 import imgAlive from '../images/heart.png';
 import imgUnknow from '../images/unknow.png';
 function CharacterDetail({ characterData }) {
+  console.log(characterData.episode);
   const statusIcon = () => {
     if (characterData.status === 'Dead') {
       return <img className='icon' src={imgDead} alt='' />;
@@ -33,7 +34,7 @@ function CharacterDetail({ characterData }) {
             </p>
             <p className='cardInfo__episodes'>
               *Número de episodios en los que aparace: {''}
-              {characterData.episode.length}
+              {characterData.episode}
             </p>
             <p className='cardInfo__status'>
               *Estado actual: {''} {statusIcon()}
