@@ -9,7 +9,7 @@ import imgLogo from '../images/logo.png';
 import localS from '../services/localStorage';
 import Filters from './Filters';
 import { Link } from 'react-router-dom';
-
+import imgError404 from '../images/404.jpg';
 import '../styles/App.scss';
 
 function App() {
@@ -52,17 +52,12 @@ function App() {
   const { pathname } = useLocation();
 
   const routeData = matchPath('/character/:characterId', pathname);
-  //console.log(routeData);
 
   const characterId = routeData !== null ? routeData.params.characterId : '';
-
-  //console.log(characterId);
 
   const characterData = charactersList.find(
     (character) => character.id === parseInt(characterId)
   );
-
-  // console.log(characterData);
 
   //html
   return (
@@ -99,8 +94,9 @@ function App() {
           <Route
             path='*'
             element={
-              <div>
-                <p className='errorPage'>
+              <div className='divErrorPage'>
+                <img className='imgError404' src={imgError404} alt='' />
+                <p className='divErrorPage__text'>
                   "Lo sentimos, esta página no existe"
                 </p>
                 <Link to='/' className='divReturn__text'>

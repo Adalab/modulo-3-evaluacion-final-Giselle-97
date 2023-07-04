@@ -6,7 +6,10 @@ body {
 }
 
 main {
-  min-height: 68vh;
+  min-height: 80vh;
+  @media screen and (min-width: 1024px) {
+    min-height: 100vh;
+  }
 }
 
 .header {
@@ -22,8 +25,8 @@ main {
   background-size: cover;
   background-position: center;
   @media screen and (min-width: 768px) {
-    width: 40%;
-    height: 40%;
+    width: 35%;
+    height: 35%;
   }
 }
 
@@ -294,8 +297,8 @@ main {
   font-size: 12px;
   text-decoration: none;
   font-family: $ribeye;
-  padding-top: 10px;
-  margin-left: 20px;
+  padding: 15px;
+  //margin-left: 20px;
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
@@ -305,13 +308,18 @@ main {
 }
 
 //menssageError
+.divErrorCharacter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .errorCharacter {
   color: #fff;
   font-size: 10px;
   font-family: $roboto;
   width: 180px;
-  margin: auto;
-  padding: 20px;
+  //margin: auto;
+  padding: 20px 0 10px 0;
   @media screen and (min-width: 768px) {
     font-size: 18px;
     width: 320px;
@@ -319,17 +327,20 @@ main {
 }
 .messageError {
   color: #fff;
-  font-size: 8px;
+  font-size: 10px;
   font-family: $roboto;
-  transform: translateY(90px);
   text-align: center;
   @media screen and (min-width: 768px) {
-    font-size: 10px;
-    //width: 320px;
+    font-size: 14px;
   }
 }
-
-.errorPage {
+//
+.divErrorPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.divErrorPage__text {
   color: #fff;
   font-size: 10px;
   font-family: $roboto;
@@ -341,7 +352,46 @@ main {
     width: 300px;
   }
 }
-//
+.imgError404 {
+  width: 50%;
+  height: 50%;
+  padding-top: 15px;
+  border-radius: 50%;
+  @media screen and (min-width: 768px) {
+    width: 15%;
+    height: 15%;
+  }
+}
+//img error
+.imgCharacterNotFound {
+  width: 50%;
+  height: 50%;
+  @media screen and (min-width: 768px) {
+    width: 16%;
+    height: 16%;
+  }
+}
+
+.divCharacterNotFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.imgCharacterNotFound2 {
+  width: 50%;
+  height: 50%;
+  @media screen and (min-width: 768px) {
+    width: 15%;
+    height: 15%;
+  }
+}
+//icon
+.icon {
+  width: 20px;
+  height: 20px;
+}
 
 .footer {
   display: flex;
@@ -389,262 +439,3 @@ main {
   transition: all 0.5s ease-in-out;
   color: rgb(0, 229, 210);
 }
-/*
-.header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.header__img {
-  width: 40%;
-  height: 40%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.header__link {
-  text-decoration: none;
-}
-
-.header__link--title {
-  color: azure;
-  font-family: $eater;
-  font-size: 45px;
-}
-
-.header__link--title:hover {
-  background: -webkit-linear-gradient(yellow, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: tomato;
-  transition: all 0.4s ease-in-out;
-}
-
-.form {
-  display: flex;
-  justify-content: space-around;
-  padding: 20px 0 20px 0;
-}
-
-//.container {}
-
-.container__search {
-  color: #fff;
-  font-family: $shojumaru;
-  padding-right: 10px;
-}
-
-.container__search--input {
-  border: solid 2px orangered;
-}
-
-.container__search2 {
-  color: #fff;
-  font-family: $shojumaru;
-  padding-right: 10px;
-}
-
-.container__search2--input {
-  border: solid 2px orangered;
-}
-
-.cardList {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 20px;
-  padding-left: 30px;
-}
-
-.cardList__card {
-  background: linear-gradient(rgb(0, 4, 255), rgb(84, 232, 234));
-  border: solid 1px blue;
-  width: 150px;
-  height: 160px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.cardList__card:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  transition: all 0.4s ease-in-out;
-}
-
-.card {
-  text-decoration: none;
-}
-
-.cardList__card--image {
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-}
-
-.cardList__card--name {
-  color: black;
-  font-family: $courgette;
-  font-size: 12px;
-  padding: 3px;
-}
-
-.cardList__card--species {
-  color: black;
-  font-family: $eater;
-  font-size: 10px;
-}
-
-//cardInfo
-.divCard {
-  margin-top: 20px;
-}
-.containerCardInfo {
-  display: flex;
-  align-items: center;
-  background: linear-gradient(rgb(115, 2, 137), rgb(218, 123, 250));
-  border: solid 2px rgb(253, 4, 191);
-  border-radius: 10px;
-  width: 400px;
-  padding-left: 10px;
-  margin: auto;
-}
-.containerCardInfo:hover {
-  filter: saturate(150%);
-  transition: all 0.5s ease-in-out;
-}
-.containerCardInfo__image {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-}
-.cardInfo {
-  color: #fff;
-  flex-direction: column;
-  padding: 20px;
-  gap: 20px;
-  line-height: 1.3;
-}
-
-.cardInfo__name {
-  font-size: 24px;
-  font-family: $henny-penny;
-  padding-bottom: 5px;
-}
-.cardInfo__name:hover {
-  color: rgb(59, 217, 122);
-}
-
-.cardInfo__specie {
-  font-size: 18px;
-  font-family: $irish-grover;
-}
-.cardInfo__specie:hover {
-  color: rgb(221, 206, 6);
-}
-
-.cardInfo__origin {
-  font-size: 18px;
-  font-family: $irish-grover;
-}
-.cardInfo__origin:hover {
-  color: rgb(221, 206, 6);
-}
-
-.cardInfo__episodes {
-  font-size: 18px;
-  font-family: $irish-grover;
-}
-.cardInfo__episodes:hover {
-  color: rgb(221, 206, 6);
-}
-
-.cardInfo__status {
-  font-size: 18px;
-  font-family: $irish-grover;
-}
-.cardInfo__status:hover {
-  color: rgb(221, 206, 6);
-}
-
-.divReturn {
-  display: flex;
-  justify-content: space-evenly;
-}
-.divReturn__text {
-  color: #fff;
-  font-size: 18px;
-  text-decoration: none;
-  font-family: $ribeye;
-  padding-top: 10px;
-  margin-left: 20px;
-}
-.divReturn__text:hover {
-  color: rgb(255, 238, 0);
-}
-
-//menssageError
-.errorCharacter {
-  color: #fff;
-  font-size: 18px;
-  font-family: $roboto;
-  width: 320px;
-  margin: auto;
-  padding: 20px;
-}
-.messageError {
-  color: #fff;
-  font-size: 8px;
-  font-family: $roboto;
-  transform: translateY(50px);
-  text-align: center;
-}
-
-.errorPage {
-  color: #fff;
-  font-size: 18px;
-  font-family: $roboto;
-  width: 300px;
-  margin: auto;
-  padding: 20px;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 80px;
-  gap: 80px;
-  padding: 30px 0 20px 0;
-}
-.footer__link {
-  //border-radius: 50%;
-}
-.footer__link--img {
-  width: 15%;
-  height: 15%;
-  overflow: hidden;
-}
-.footer__link--img:hover {
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
-  transition: all 0.4s ease-in-out;
-}
-.footer__text {
-  color: white;
-  font-size: 25px;
-  font-family: $henny-penny;
-  text-decoration: none;
-}
-.footer__text:hover {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-  transition: all 0.5s ease-in-out;
-  color: rgb(0, 229, 210);
-}
-*/

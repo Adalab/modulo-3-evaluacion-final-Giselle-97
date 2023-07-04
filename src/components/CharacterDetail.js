@@ -1,7 +1,19 @@
 import { Link } from 'react-router-dom';
+import imgErrorCharacter from '../images/character-not-found-1.png';
+import imgDead from '../images/skull.png';
+import imgAlive from '../images/heart.png';
+import imgUnknow from '../images/unknow.png';
 function CharacterDetail({ characterData }) {
+  const statusIcon = () => {
+    if (characterData.status === 'Dead') {
+      return <img className='icon' src={imgDead} alt='' />;
+    } else if (characterData.status === 'Alive') {
+      return <img className='icon' src={imgAlive} alt='' />;
+    } else {
+      return <img src={imgUnknow} alt='' />;
+    }
+  };
   if (characterData) {
-    //console.log(characterData);
     return (
       <div className='divCard'>
         <div className='containerCardInfo'>
@@ -24,7 +36,7 @@ function CharacterDetail({ characterData }) {
               {characterData.episode.length}
             </p>
             <p className='cardInfo__status'>
-              *Estado actual: {''} {characterData.status}
+              *Estado actual: {''} {statusIcon()}
             </p>
           </section>
         </div>
@@ -37,10 +49,11 @@ function CharacterDetail({ characterData }) {
     );
   } else {
     return (
-      <div>
+      <div className='divErrorCharacter'>
         <p className='errorCharacter'>
           "Lo sentimos, este personaje no existe"
         </p>
+        <img className='imgCharacterNotFound' src={imgErrorCharacter} alt='' />
         <Link to='/' className='divReturn__text'>
           Volver
         </Link>
