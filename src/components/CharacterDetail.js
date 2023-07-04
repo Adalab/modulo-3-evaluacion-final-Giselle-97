@@ -4,7 +4,6 @@ import imgDead from '../images/skull.png';
 import imgAlive from '../images/heart.png';
 import imgUnknow from '../images/unknow.png';
 function CharacterDetail({ characterData }) {
-  console.log(characterData.episode.length);
   const statusIcon = () => {
     if (characterData.status === 'Dead') {
       return <img className='icon' src={imgDead} alt='' />;
