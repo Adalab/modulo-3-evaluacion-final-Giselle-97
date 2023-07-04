@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "./static/css/main.ac9d5260.css",
-    "main.js": "./static/js/main.bc27722a.js",
+    "main.css": "./static/css/main.d2cd3655.css",
+    "main.js": "./static/js/main.168dff2a.js",
     "static/media/rick-y-morty.jpg": "./static/media/rick-y-morty.d48d65365daf9290abff.jpg",
     "static/media/character-not-found.png": "./static/media/character-not-found.524f8663ee0ebb4f8758.png",
     "static/media/logo.png": "./static/media/logo.f64ff9c70f0e65215f74.png",
     "static/media/404.jpg": "./static/media/404.ce293654fc5b055593cf.jpg",
     "static/media/character-not-found-1.png": "./static/media/character-not-found-1.9bbf6f8940362b1ce425.png",
     "index.html": "./index.html",
-    "main.ac9d5260.css.map": "./static/css/main.ac9d5260.css.map",
-    "main.bc27722a.js.map": "./static/js/main.bc27722a.js.map"
+    "main.d2cd3655.css.map": "./static/css/main.d2cd3655.css.map",
+    "main.168dff2a.js.map": "./static/js/main.168dff2a.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac9d5260.css",
-    "static/js/main.bc27722a.js"
+    "static/css/main.d2cd3655.css",
+    "static/js/main.168dff2a.js"
   ]
 }
